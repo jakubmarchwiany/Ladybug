@@ -1,0 +1,1 @@
+#Glowne Okno Aplikacji
