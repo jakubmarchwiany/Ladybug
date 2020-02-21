@@ -1,7 +1,6 @@
 # Glowne Okno Aplikacji
 
-import pygame
-import random
+import pygame, sys, os, random
 from Ladybug import *
 
 pygame.init()
@@ -15,7 +14,6 @@ white = (255, 255, 255)
 screen.fill(white)
 
 ladybugs = []
-
 numbers_of_ladybug = 100
 
 for i in range(1, numbers_of_ladybug):
@@ -24,13 +22,26 @@ for i in range(1, numbers_of_ladybug):
 
     ladybugs.append(Ladybug(randomX, randomY))
 
-for ladybug in ladybugs:
-    ladybug.draw(screen)
-pygame.display.update()
+show = 0
 
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
-            exit()
+            quit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                show = 1
+
+    if show == 0:
+        background = pygame.image.load(os.path.join("MenuPic.png"))
+        screen.blit(background, (0, 0))
+
+    if show == 1:
+        screen.fill((0, 0, 0))
+
+        for ladybug in ladybugs:
+            ladybug.draw(screen)
+
+    pygame.display.update()
 
