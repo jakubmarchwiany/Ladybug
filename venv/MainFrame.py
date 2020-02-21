@@ -27,12 +27,10 @@ while True:
                 engine = Engine( width, height, screen )
 
     if show == 0:
-        grafika = pygame.image.load( os.path.join( "MenuPic.png" ) )
-        screen.blit( grafika, (0, 0) )
-
+        background = pygame.image.load(os.path.join("MenuPic.png"))
+        screen.blit(background, (0, 0))
     if show == 1:
        if(engine.end)
             print("Koniec gry")
-
 
     pygame.display.update()
